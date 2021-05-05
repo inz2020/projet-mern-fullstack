@@ -18,7 +18,26 @@ const PostSchema= new mongoose.Schema(
         },
         video:{
             type:String
-        }
+        },
+        likers:{
+            type:[String],
+            required: true,
+        },
+        comments:{
+            type:[
+                {
+                    commentId:String,
+                    commentPseudo:String,
+                    text:String,
+                    timestamp:Number,
+                }
+            ],
+            required:true,
+        },
            
-    }
-)
+    },
+    {timestamps:true}
+);
+
+
+module.exports= mongoose.model('post', PostSchema);

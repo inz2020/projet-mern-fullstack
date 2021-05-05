@@ -4,6 +4,7 @@ require('./config/db');
 const bodyParser= require('body-parser');
 const mongoose= require('mongoose');
 const userRoutes= require('./routes/user.routes');
+const postRoutes= require('./routes/post.routes');
 mongoose.set('useFindAndModify', false);
 const cors= require('cors');
 const cookieParser= require('cookie-parser');
@@ -28,6 +29,8 @@ app.get('/jwtid', requireAuth, (req, res)=>{
 
 //Les middlewares qui doivent passer
 app.use('/api/users', userRoutes);
+app.use('/api/posts', postRoutes);
+
 
 
 
