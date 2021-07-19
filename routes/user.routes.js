@@ -1,12 +1,18 @@
-const router= require ('express').Router();
-const authController= require('../controllers/auth.controller');
-const userController= require ('../controllers/user.controller');
+const router = require('express').Router();
+const authController = require('../controllers/auth.controller');
+const userController = require('../controllers/user.controller');
+const uploadController = require('../controllers/upload.controller');
+
+const multer = require('multer');
+const upload = multer();
 
 //Authen
 //Creer un compte
 router.post("/register", authController.signUp);
+
 //Se connecter
 router.post("/login", authController.signIn);
+
 //Se deconnecter
 router.get("/logout", authController.logout);
 
@@ -28,6 +34,10 @@ router.patch("/follow/:id", userController.followUsers);
 //Requette HTTP PATCH pour unfollow
 router.patch("/unfollow/:id", userController.unfollowUsers);
 
+//upload
+
+router.post('/upload', upload.single('file'), uploadController.uploadProfil)
 
 
-module.exports= router;
+
+module.exports = router;

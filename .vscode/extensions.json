@@ -1,0 +1,8 @@
+{
+    "recommendations": [
+        "ysemeniuk.emmet-live",
+        "dbaeumer.vscode-eslint",
+        "remimarsal.prettier-now",
+        "rvest.vs-code-prettier-eslint"
+    ]
+}
